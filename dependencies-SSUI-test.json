@@ -1,0 +1,60 @@
+{
+  "Blurb": [
+    "Header",
+    "Icon",
+    "Image"
+  ],
+  "Blurbs": [
+    "Grid",
+    "Container",
+    "Segment",
+    "Header",
+    "Icon",
+    "Image"
+  ],
+  "Footer": [
+    "Container",
+    "Grid",
+    "Segment"
+  ],
+  "Form": [
+    "Icon",
+    "Form",
+    "Message",
+    "Transition"
+  ],
+  "FormSection": [
+    "Container",
+    "Header",
+    "Icon",
+    "Image"
+  ],
+  "Hero": [
+    "Icon",
+    "Button",
+    "Label",
+    "Container",
+    "Header",
+    "Image",
+    "Transition",
+    "Segment"
+  ],
+  "Navigation": [
+    "Segment",
+    "Container",
+    "Menu"
+  ],
+  "NavigationItem": [
+    "Menu"
+  ],
+  "PortfolioItem": [
+    "Dimmer",
+    "Header",
+    "Icon",
+    "Image",
+    "Grid"
+  ],
+  "SocialMediaIcon": [
+    "Icon"
+  ]
+}

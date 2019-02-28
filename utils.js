@@ -47,7 +47,7 @@ function filterInvalidPaths(deps) {
   return filtered
 }
 
-function writeObjToFile(obj, filepath) {
+function writeObjToFile(filepath, obj) {
   fs.writeFileSync(filepath, JSON.stringify(obj, null, 2), 'utf8')
 }
 
