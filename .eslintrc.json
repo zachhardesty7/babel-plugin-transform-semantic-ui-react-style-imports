@@ -1,0 +1,18 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:jsx-a11y/recommended",
+    "standard"
+  ],
+  "globals": {
+    "fetch": true
+  },
+  "rules": {
+    "no-console": 0,
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ]
+  }
+}

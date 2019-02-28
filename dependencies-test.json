@@ -1,0 +1,483 @@
+{
+  "Accordion": [
+    "AccordionAccordion",
+    "AccordionContent",
+    "AccordionPanel",
+    "AccordionTitle"
+  ],
+  "AccordionAccordion": [
+    "AccordionPanel"
+  ],
+  "AccordionContent": [],
+  "AccordionPanel": [
+    "AccordionTitle",
+    "AccordionContent"
+  ],
+  "AccordionTitle": [
+    "Icon"
+  ],
+  "Advertisement": [],
+  "Breadcrumb": [
+    "BreadcrumbDivider",
+    "BreadcrumbSection"
+  ],
+  "BreadcrumbDivider": [
+    "Icon"
+  ],
+  "BreadcrumbSection": [],
+  "Button": [
+    "Icon",
+    "Label",
+    "ButtonContent",
+    "ButtonGroup",
+    "ButtonOr"
+  ],
+  "ButtonContent": [],
+  "ButtonGroup": [
+    "Button"
+  ],
+  "ButtonOr": [],
+  "Card": [
+    "Image",
+    "CardContent",
+    "CardDescription",
+    "CardGroup",
+    "CardHeader",
+    "CardMeta"
+  ],
+  "CardContent": [
+    "CardDescription",
+    "CardHeader",
+    "CardMeta"
+  ],
+  "CardDescription": [],
+  "CardGroup": [
+    "Card"
+  ],
+  "CardHeader": [],
+  "CardMeta": [],
+  "Checkbox": [],
+  "Comment": [
+    "CommentAction",
+    "CommentActions",
+    "CommentAuthor",
+    "CommentAvatar",
+    "CommentContent",
+    "CommentGroup",
+    "CommentMetadata",
+    "CommentText"
+  ],
+  "CommentAction": [],
+  "CommentActions": [],
+  "CommentAuthor": [],
+  "CommentAvatar": [],
+  "CommentContent": [],
+  "CommentGroup": [],
+  "CommentMetadata": [],
+  "CommentText": [],
+  "Confirm": [
+    "Button",
+    "Modal"
+  ],
+  "Container": [],
+  "Dimmer": [
+    "Portal",
+    "DimmerDimmable",
+    "DimmerInner"
+  ],
+  "DimmerDimmable": [],
+  "DimmerInner": [],
+  "Divider": [],
+  "Dropdown": [
+    "Icon",
+    "Label",
+    "DropdownDivider",
+    "DropdownItem",
+    "DropdownHeader",
+    "DropdownMenu",
+    "DropdownSearchInput"
+  ],
+  "DropdownDivider": [],
+  "DropdownHeader": [
+    "Icon"
+  ],
+  "DropdownItem": [
+    "Flag",
+    "Icon",
+    "Image",
+    "Label"
+  ],
+  "DropdownMenu": [],
+  "DropdownSearchInput": [],
+  "Embed": [
+    "Icon"
+  ],
+  "Feed": [
+    "FeedContent",
+    "FeedDate",
+    "FeedEvent",
+    "FeedExtra",
+    "FeedLabel",
+    "FeedLike",
+    "FeedMeta",
+    "FeedSummary",
+    "FeedUser"
+  ],
+  "FeedContent": [
+    "FeedDate",
+    "FeedExtra",
+    "FeedMeta",
+    "FeedSummary"
+  ],
+  "FeedDate": [],
+  "FeedEvent": [
+    "FeedContent",
+    "FeedLabel"
+  ],
+  "FeedExtra": [],
+  "FeedLabel": [
+    "Icon"
+  ],
+  "FeedLike": [
+    "Icon"
+  ],
+  "FeedMeta": [
+    "FeedLike"
+  ],
+  "FeedSummary": [
+    "FeedDate",
+    "FeedUser"
+  ],
+  "FeedUser": [],
+  "Flag": [],
+  "Form": [
+    "FormButton",
+    "FormCheckbox",
+    "FormDropdown",
+    "FormField",
+    "FormGroup",
+    "FormInput",
+    "FormRadio",
+    "FormSelect",
+    "FormTextArea"
+  ],
+  "FormButton": [
+    "Button",
+    "FormField"
+  ],
+  "FormCheckbox": [
+    "Checkbox",
+    "FormField"
+  ],
+  "FormDropdown": [
+    "Dropdown",
+    "FormField"
+  ],
+  "FormField": [
+    "Checkbox",
+    "Radio"
+  ],
+  "FormGroup": [],
+  "FormInput": [
+    "Input",
+    "FormField"
+  ],
+  "FormRadio": [
+    "Radio",
+    "FormField"
+  ],
+  "FormSelect": [
+    "Select",
+    "Dropdown",
+    "FormField"
+  ],
+  "FormTextArea": [
+    "TextArea",
+    "FormField"
+  ],
+  "Grid": [
+    "GridColumn",
+    "GridRow"
+  ],
+  "GridColumn": [],
+  "GridRow": [],
+  "Header": [
+    "Icon",
+    "Image",
+    "HeaderSubheader",
+    "HeaderContent"
+  ],
+  "HeaderContent": [],
+  "HeaderSubheader": [],
+  "Icon": [
+    "IconGroup"
+  ],
+  "IconGroup": [],
+  "Image": [
+    "Dimmer",
+    "Label",
+    "ImageGroup"
+  ],
+  "ImageGroup": [],
+  "Input": [
+    "Button",
+    "Icon",
+    "Label"
+  ],
+  "Item": [
+    "ItemContent",
+    "ItemDescription",
+    "ItemExtra",
+    "ItemGroup",
+    "ItemHeader",
+    "ItemImage",
+    "ItemMeta"
+  ],
+  "ItemContent": [
+    "ItemHeader",
+    "ItemDescription",
+    "ItemExtra",
+    "ItemMeta"
+  ],
+  "ItemDescription": [],
+  "ItemExtra": [],
+  "ItemGroup": [
+    "Item"
+  ],
+  "ItemHeader": [],
+  "ItemImage": [
+    "Image"
+  ],
+  "ItemMeta": [],
+  "Label": [
+    "Icon",
+    "Image",
+    "LabelDetail",
+    "LabelGroup"
+  ],
+  "LabelDetail": [],
+  "LabelGroup": [],
+  "List": [
+    "ListContent",
+    "ListDescription",
+    "ListHeader",
+    "ListIcon",
+    "ListItem",
+    "ListList"
+  ],
+  "ListContent": [
+    "ListDescription",
+    "ListHeader"
+  ],
+  "ListDescription": [],
+  "ListHeader": [],
+  "ListIcon": [
+    "Icon"
+  ],
+  "ListItem": [
+    "Image",
+    "ListContent",
+    "ListDescription",
+    "ListHeader",
+    "ListIcon"
+  ],
+  "ListList": [],
+  "Loader": [],
+  "Menu": [
+    "MenuHeader",
+    "MenuItem",
+    "MenuMenu"
+  ],
+  "MenuHeader": [],
+  "MenuItem": [
+    "Icon"
+  ],
+  "MenuMenu": [],
+  "Message": [
+    "Icon",
+    "MessageContent",
+    "MessageHeader",
+    "MessageList",
+    "MessageItem"
+  ],
+  "MessageContent": [],
+  "MessageHeader": [],
+  "MessageItem": [],
+  "MessageList": [
+    "MessageItem"
+  ],
+  "Modal": [
+    "Icon",
+    "MountNode",
+    "Portal",
+    "ModalHeader",
+    "ModalContent",
+    "ModalActions",
+    "ModalDescription",
+    "Ref"
+  ],
+  "ModalActions": [
+    "Button"
+  ],
+  "ModalContent": [],
+  "ModalDescription": [],
+  "ModalHeader": [],
+  "MountNode": [
+    "getNodeFromProps",
+    "handleClassNamesChange",
+    "NodeRegistry"
+  ],
+  "NodeRegistry": null,
+  "Pagination": [
+    "Menu",
+    "PaginationItem"
+  ],
+  "PaginationItem": [
+    "MenuItem"
+  ],
+  "Placeholder": [
+    "PlaceholderHeader",
+    "PlaceholderImage",
+    "PlaceholderLine",
+    "PlaceholderParagraph"
+  ],
+  "PlaceholderHeader": [],
+  "PlaceholderImage": [],
+  "PlaceholderLine": [],
+  "PlaceholderParagraph": [],
+  "Popup": [
+    "Portal",
+    "PopupContent",
+    "PopupHeader"
+  ],
+  "PopupContent": [],
+  "PopupHeader": [],
+  "Portal": [
+    "Ref",
+    "PortalInner"
+  ],
+  "PortalInner": [
+    "Ref"
+  ],
+  "Progress": [],
+  "Radio": [
+    "Checkbox"
+  ],
+  "Rail": [],
+  "Rating": [
+    "RatingIcon"
+  ],
+  "RatingIcon": [],
+  "Ref": [
+    "RefFindNode",
+    "RefForward"
+  ],
+  "RefFindNode": [
+    "handleRef"
+  ],
+  "RefForward": [
+    "handleRef"
+  ],
+  "Responsive": [
+    "isVisible"
+  ],
+  "Reveal": [
+    "RevealContent"
+  ],
+  "RevealContent": [],
+  "Search": [
+    "Input",
+    "SearchCategory",
+    "SearchResult",
+    "SearchResults"
+  ],
+  "SearchCategory": [],
+  "SearchResult": [],
+  "SearchResults": [],
+  "Segment": [
+    "SegmentGroup",
+    "SegmentInline"
+  ],
+  "SegmentGroup": [],
+  "SegmentInline": [],
+  "Select": [
+    "Dropdown"
+  ],
+  "Sidebar": [
+    "Ref",
+    "SidebarPushable",
+    "SidebarPusher"
+  ],
+  "SidebarPushable": [],
+  "SidebarPusher": [],
+  "Statistic": [
+    "StatisticGroup",
+    "StatisticLabel",
+    "StatisticValue"
+  ],
+  "StatisticGroup": [
+    "Statistic"
+  ],
+  "StatisticLabel": [],
+  "StatisticValue": [],
+  "Step": [
+    "Icon",
+    "StepContent",
+    "StepDescription",
+    "StepGroup",
+    "StepTitle"
+  ],
+  "StepContent": [
+    "StepDescription",
+    "StepTitle"
+  ],
+  "StepDescription": [],
+  "StepGroup": [
+    "Step"
+  ],
+  "StepTitle": [],
+  "Sticky": [],
+  "Tab": [
+    "Grid",
+    "GridColumn",
+    "Menu",
+    "TabPane"
+  ],
+  "TabPane": [
+    "Segment"
+  ],
+  "Table": [
+    "TableBody",
+    "TableCell",
+    "TableFooter",
+    "TableHeader",
+    "TableHeaderCell",
+    "TableRow"
+  ],
+  "TableBody": [],
+  "TableCell": [
+    "Icon"
+  ],
+  "TableFooter": [
+    "TableHeader"
+  ],
+  "TableHeader": [],
+  "TableHeaderCell": [
+    "TableCell"
+  ],
+  "TableRow": [
+    "TableCell"
+  ],
+  "TextArea": [],
+  "Transition": [
+    "TransitionGroup"
+  ],
+  "TransitionGroup": [
+    "Transition"
+  ],
+  "TransitionablePortal": [
+    "Portal",
+    "Transition"
+  ],
+  "Visibility": []
+}
