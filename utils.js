@@ -1,4 +1,18 @@
+const path = require('path')
 const fs = require('fs')
+
+/**
+ * Returns the path to the given package.
+ * @param packageName The package name
+ * @returns {*} The package path
+ */
+function getPackagePath(packageName) {
+  try {
+    return path.dirname(require.resolve(`${packageName}/package.json`))
+  } catch (e) {
+    return null
+  }
+}
 
 function sortKeys(obj) {
   const ordered = {}
@@ -33,11 +47,12 @@ function filterInvalidPaths(deps) {
   return filtered
 }
 
-function writeObjToFile(obj, path) {
-  fs.writeFileSync(path, JSON.stringify(obj, null, 2), 'utf8')
+function writeObjToFile(obj, filepath) {
+  fs.writeFileSync(filepath, JSON.stringify(obj, null, 2), 'utf8')
 }
 
 module.exports = {
+  getPackagePath,
   sortKeys,
   filterEmpty,
   filterInvalidPaths,

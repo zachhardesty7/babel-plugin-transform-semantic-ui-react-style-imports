@@ -2,20 +2,16 @@
 const path = require('path')
 const fs = require('fs')
 const dirTree = require('directory-tree')
-const utils = require('./utils')
+const {
+  getPackagePath,
+  sortKeys,
+  filterEmpty,
+  filterInvalidPaths,
+  writeObjToFile
+} = require('./utils')
 
-/**
- * Returns the path to the given package.
- * @param packageName The package name
- * @returns {*} The package path
- */
-function getPackagePath(packageName) {
-  try {
-    return path.dirname(require.resolve(`${packageName}/package.json`))
-  } catch (e) {
-    return null
-  }
-}
+// run as node.js script
+// writeDependencies(utils.filterEmpty(utils.filterInvalid(utils.sortKeys(getFiles()))))
 
 /**
  * Gathers import paths of Semantic UI React components from semantic-ui-react package folder.
@@ -24,7 +20,7 @@ function getPackagePath(packageName) {
  * import paths (relative to semantic-ui-react/dist/[import type]/ or
  * semantic-ui-react/src/ (for es='src').
  */
-function getFiles() {
+function getDeps() {
   const files = {}
   const semanticUiReactPath = getPackagePath('semantic-ui-react')
   const srcDirPath = path.resolve(semanticUiReactPath, 'src')
@@ -66,15 +62,16 @@ function getFiles() {
   return f
 }
 
-function writeDependencies(obj) {
-  utils.writeObjToFile('dependencies-test.json', obj)
+function getCleanedDeps() {
+  return filterEmpty(filterInvalidPaths(sortKeys(getDeps())))
 }
 
-// run as node.js script
-// writeDependencies(utils.filterEmpty(utils.filterInvalid(utils.sortKeys(getFiles()))))
+function writeDependencies(obj) {
+  writeObjToFile('dependencies-test.json', obj)
+}
 
 module.exports = {
-  getPackagePath,
-  getFiles,
+  getDeps,
+  getCleanedDeps,
   writeDependencies
 }
