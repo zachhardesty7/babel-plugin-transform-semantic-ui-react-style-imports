@@ -2,6 +2,7 @@
 const path = require('path')
 const fs = require('fs')
 const dirTree = require('directory-tree')
+const utils = require('./utils')
 
 /**
  * Returns the path to the given package.
@@ -65,50 +66,15 @@ function getFiles() {
   return f
 }
 
-function filterInvalid(deps) {
-  const filtered = {}
-
-  Object.keys(deps).forEach((key) => {
-    if (deps[key]) {
-      filtered[key] = deps[key].filter(dep => fs.existsSync(`node_modules/semantic-ui-css/components/${dep.toLowerCase()}.min.css`))
-    }
-  })
-
-  return filtered
+function writeDependencies(obj) {
+  utils.writeObjToFile('dependencies-test.json', obj)
 }
 
-function sortKeys(obj) {
-  const ordered = {}
-  Object.keys(obj).sort().forEach((key) => {
-    ordered[key] = obj[key]
-  })
-
-  return ordered
-}
-
-function filterEmpty(obj) {
-  const filtered = {}
-
-  Object.keys(obj).forEach((key) => {
-    if (obj[key].length) {
-      filtered[key] = obj[key]
-    }
-  })
-
-  return filtered
-}
-
-function writeToFile(f) {
-  fs.writeFileSync('dependencies-test.json', JSON.stringify(f, null, 2), 'utf8')
-}
-
-// writeToFile(filterEmpty(filterInvalid(sortKeys(getFiles()))))
+// run as node.js script
+// writeDependencies(utils.filterEmpty(utils.filterInvalid(utils.sortKeys(getFiles()))))
 
 module.exports = {
   getPackagePath,
   getFiles,
-  filterInvalid,
-  sortKeys,
-  filterEmpty,
-  writeToFile
+  writeDependencies
 }
