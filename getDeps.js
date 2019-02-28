@@ -1,3 +1,4 @@
+// TODO: test using a regex to match after "cx()" call
 const path = require('path')
 const fs = require('fs')
 const dirTree = require('directory-tree')
@@ -22,7 +23,7 @@ function getPackagePath(packageName) {
  * import paths (relative to semantic-ui-react/dist/[import type]/ or
  * semantic-ui-react/src/ (for es='src').
  */
-function getDeps() {
+function getFiles() {
   const files = {}
   const semanticUiReactPath = getPackagePath('semantic-ui-react')
   const srcDirPath = path.resolve(semanticUiReactPath, 'src')
@@ -56,18 +57,58 @@ function getDeps() {
     const reg = /(?<=import )(\w*)(?=.*'\.)/mg
     const match = data.match(reg)
     const matchFilter = match && match.filter(m => m && m)
+    if (matchFilter) matchFilter.unshift(file)
 
     f[file] = matchFilter
   })
 
-  const ordered = {}
-  Object.keys(f).sort().forEach((key) => {
-    ordered[key] = f[key]
-  })
-
-  fs.writeFileSync('dependencies-test.json', JSON.stringify(ordered, null, 2), 'utf8')
-
   return f
 }
 
-getDeps()
+function filterInvalid(deps) {
+  const filtered = {}
+
+  Object.keys(deps).forEach((key) => {
+    if (deps[key]) {
+      filtered[key] = deps[key].filter(dep => fs.existsSync(`node_modules/semantic-ui-css/components/${dep.toLowerCase()}.min.css`))
+    }
+  })
+
+  return filtered
+}
+
+function sortKeys(obj) {
+  const ordered = {}
+  Object.keys(obj).sort().forEach((key) => {
+    ordered[key] = obj[key]
+  })
+
+  return ordered
+}
+
+function filterEmpty(obj) {
+  const filtered = {}
+
+  Object.keys(obj).forEach((key) => {
+    if (obj[key].length) {
+      filtered[key] = obj[key]
+    }
+  })
+
+  return filtered
+}
+
+function writeToFile(f) {
+  fs.writeFileSync('dependencies-test.json', JSON.stringify(f, null, 2), 'utf8')
+}
+
+// writeToFile(filterEmpty(filterInvalid(sortKeys(getFiles()))))
+
+module.exports = {
+  getPackagePath,
+  getFiles,
+  filterInvalid,
+  sortKeys,
+  filterEmpty,
+  writeToFile
+}
