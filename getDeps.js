@@ -83,7 +83,7 @@ function getCleanedDeps() {
 }
 
 function writeDependencies(obj) {
-  writeObjToFile('dependencies-test.json', obj)
+  writeObjToFile('dependencies.json', obj)
 }
 
 module.exports = {

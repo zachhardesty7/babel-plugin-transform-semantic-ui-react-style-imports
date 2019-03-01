@@ -60,7 +60,7 @@ function getCleanedSSUIDeps() {
 }
 
 function writeSSUIDependencies(obj) {
-  writeObjToFile('dependencies-SSUI-test.json', obj)
+  writeObjToFile('dependencies-SSUI.json', obj)
 }
 
 module.exports = {
