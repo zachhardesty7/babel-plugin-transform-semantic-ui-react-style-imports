@@ -7,6 +7,7 @@ const input = `
   import PropTypes from 'prop-types'
   import { graphql } from 'gatsby'
   import GImage from 'gatsby-image'
+  import 'semantic-ui-css/semantic.min.css'
 
   import {
     Segment,

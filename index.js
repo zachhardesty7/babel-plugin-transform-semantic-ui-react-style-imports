@@ -10,11 +10,10 @@ function transform({ types: t }) {
       ImportDeclaration(path, state) {
         const packageRegex = /^((.*!)?semantic-ui-react)([/\\].*)?$/
         const match1 = packageRegex.exec(path.node.source.value)
+        const addImports = []
 
         if (match1) {
           const memberImports = path.node.specifiers.filter(specifier => specifier.type === 'ImportSpecifier')
-
-          const addImports = []
 
           // For each member import of a known component, add a separate import statement
           memberImports.forEach((memberImport) => {
@@ -23,8 +22,6 @@ function transform({ types: t }) {
               addImports.push(t.importDeclaration([], t.stringLiteral(`semantic-ui-css/components/${dep.toLowerCase()}.min.css`)))
             })
           })
-
-          path.insertAfter(addImports)
         }
 
         const packageRegex2 = /^((.*!)?semantic-styled-ui)([/\\].*)?$/
@@ -33,8 +30,6 @@ function transform({ types: t }) {
         if (match2) {
           const memberImports = path.node.specifiers.filter(specifier => specifier.type === 'ImportSpecifier')
 
-          const addImports = []
-
           // For each member import of a known component, add a separate import statement
           memberImports.forEach((memberImport) => {
             const deps = mappingSSUI[memberImport.imported.name]
@@ -42,8 +37,23 @@ function transform({ types: t }) {
               addImports.push(t.importDeclaration([], t.stringLiteral(`semantic-ui-css/components/${dep.toLowerCase()}.min.css`)))
             })
           })
+        }
 
+        const packageRegex3 = /^semantic-ui-css\/semantic.min.css$/
+        const match3 = packageRegex3.exec(path.node.source.value)
+        if (match3) {
+          // For each member import of a known component, add a separate import statement
+          addImports.push(t.importDeclaration([], t.stringLiteral(`semantic-ui-css/components/reset.min.css`)))
+          addImports.push(t.importDeclaration([], t.stringLiteral(`semantic-ui-css/components/site.min.css`)))
+        }
+
+        // FIXME: will input duplicate imports (webpack should eliminate)
+        if (match1 || match2 || match3) {
           path.insertAfter(addImports)
+        }
+
+        if (match3) {
+          path.remove()
         }
       }
     }
