@@ -56,3 +56,7 @@ or `src`. `'es'`, `'commonjs'` or `'umd'`:
     cd babel-plugin-transform-semantic-ui-react-style-imports
     npm install
     npm run test
+
+## Acknowledgements
+
+heavy inspiration take from [skleeschulte](https://github.com/skleeschulte/babel-plugin-transform-semantic-ui-react-imports)
