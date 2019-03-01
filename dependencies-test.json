@@ -1,103 +1,74 @@
 {
   "Accordion": [
-    "AccordionAccordion",
-    "AccordionContent",
-    "AccordionPanel",
-    "AccordionTitle"
+    "Accordion",
+    "Icon"
   ],
-  "AccordionAccordion": [
-    "AccordionPanel"
-  ],
-  "AccordionContent": [],
   "AccordionPanel": [
-    "AccordionTitle",
-    "AccordionContent"
+    "Icon"
   ],
   "AccordionTitle": [
     "Icon"
   ],
-  "Advertisement": [],
   "Breadcrumb": [
-    "BreadcrumbDivider",
-    "BreadcrumbSection"
+    "Breadcrumb",
+    "Icon"
   ],
   "BreadcrumbDivider": [
     "Icon"
   ],
-  "BreadcrumbSection": [],
   "Button": [
+    "Button",
     "Icon",
     "Label",
-    "ButtonContent",
-    "ButtonGroup",
-    "ButtonOr"
+    "Image"
   ],
-  "ButtonContent": [],
   "ButtonGroup": [
-    "Button"
+    "Button",
+    "Icon",
+    "Label",
+    "Image"
   ],
-  "ButtonOr": [],
   "Card": [
+    "Card",
     "Image",
-    "CardContent",
-    "CardDescription",
-    "CardGroup",
-    "CardHeader",
-    "CardMeta"
+    "Dimmer",
+    "Label"
   ],
-  "CardContent": [
-    "CardDescription",
-    "CardHeader",
-    "CardMeta"
-  ],
-  "CardDescription": [],
   "CardGroup": [
-    "Card"
+    "Card",
+    "Image",
+    "Dimmer",
+    "Label"
   ],
-  "CardHeader": [],
-  "CardMeta": [],
-  "Checkbox": [],
+  "Checkbox": [
+    "Checkbox"
+  ],
   "Comment": [
-    "CommentAction",
-    "CommentActions",
-    "CommentAuthor",
-    "CommentAvatar",
-    "CommentContent",
-    "CommentGroup",
-    "CommentMetadata",
-    "CommentText"
+    "Comment"
   ],
-  "CommentAction": [],
-  "CommentActions": [],
-  "CommentAuthor": [],
-  "CommentAvatar": [],
-  "CommentContent": [],
-  "CommentGroup": [],
-  "CommentMetadata": [],
-  "CommentText": [],
   "Confirm": [
     "Button",
-    "Modal"
-  ],
-  "Container": [],
-  "Dimmer": [
-    "Portal",
-    "DimmerDimmable",
-    "DimmerInner"
-  ],
-  "DimmerDimmable": [],
-  "DimmerInner": [],
-  "Divider": [],
-  "Dropdown": [
+    "Modal",
     "Icon",
     "Label",
-    "DropdownDivider",
-    "DropdownItem",
-    "DropdownHeader",
-    "DropdownMenu",
-    "DropdownSearchInput"
+    "Image"
   ],
-  "DropdownDivider": [],
+  "Container": [
+    "Container"
+  ],
+  "Dimmer": [
+    "Dimmer"
+  ],
+  "Divider": [
+    "Divider"
+  ],
+  "Dropdown": [
+    "Dropdown",
+    "Icon",
+    "Label",
+    "Image",
+    "Flag"
+  ],
   "DropdownHeader": [
     "Icon"
   ],
@@ -105,36 +76,20 @@
     "Flag",
     "Icon",
     "Image",
-    "Label"
+    "Label",
+    "Dimmer"
   ],
-  "DropdownMenu": [],
-  "DropdownSearchInput": [],
   "Embed": [
+    "Embed",
     "Icon"
   ],
   "Feed": [
-    "FeedContent",
-    "FeedDate",
-    "FeedEvent",
-    "FeedExtra",
-    "FeedLabel",
-    "FeedLike",
-    "FeedMeta",
-    "FeedSummary",
-    "FeedUser"
+    "Feed",
+    "Icon"
   ],
-  "FeedContent": [
-    "FeedDate",
-    "FeedExtra",
-    "FeedMeta",
-    "FeedSummary"
-  ],
-  "FeedDate": [],
   "FeedEvent": [
-    "FeedContent",
-    "FeedLabel"
+    "Icon"
   ],
-  "FeedExtra": [],
   "FeedLabel": [
     "Icon"
   ],
@@ -142,342 +97,241 @@
     "Icon"
   ],
   "FeedMeta": [
-    "FeedLike"
+    "Icon"
   ],
-  "FeedSummary": [
-    "FeedDate",
-    "FeedUser"
+  "Flag": [
+    "Flag"
   ],
-  "FeedUser": [],
-  "Flag": [],
   "Form": [
-    "FormButton",
-    "FormCheckbox",
-    "FormDropdown",
-    "FormField",
-    "FormGroup",
-    "FormInput",
-    "FormRadio",
-    "FormSelect",
-    "FormTextArea"
+    "Form",
+    "Button",
+    "Checkbox",
+    "Dropdown",
+    "Input"
   ],
   "FormButton": [
     "Button",
-    "FormField"
+    "Icon",
+    "Label",
+    "Image",
+    "Checkbox"
   ],
   "FormCheckbox": [
-    "Checkbox",
-    "FormField"
+    "Checkbox"
   ],
   "FormDropdown": [
     "Dropdown",
-    "FormField"
+    "Icon",
+    "Label",
+    "Image",
+    "Flag",
+    "Checkbox"
   ],
   "FormField": [
-    "Checkbox",
-    "Radio"
+    "Checkbox"
   ],
-  "FormGroup": [],
   "FormInput": [
     "Input",
-    "FormField"
-  ],
-  "FormRadio": [
-    "Radio",
-    "FormField"
-  ],
-  "FormSelect": [
-    "Select",
-    "Dropdown",
-    "FormField"
-  ],
-  "FormTextArea": [
-    "TextArea",
-    "FormField"
-  ],
-  "Grid": [
-    "GridColumn",
-    "GridRow"
-  ],
-  "GridColumn": [],
-  "GridRow": [],
-  "Header": [
-    "Icon",
-    "Image",
-    "HeaderSubheader",
-    "HeaderContent"
-  ],
-  "HeaderContent": [],
-  "HeaderSubheader": [],
-  "Icon": [
-    "IconGroup"
-  ],
-  "IconGroup": [],
-  "Image": [
-    "Dimmer",
-    "Label",
-    "ImageGroup"
-  ],
-  "ImageGroup": [],
-  "Input": [
     "Button",
     "Icon",
-    "Label"
+    "Label",
+    "Checkbox"
   ],
-  "Item": [
-    "ItemContent",
-    "ItemDescription",
-    "ItemExtra",
-    "ItemGroup",
-    "ItemHeader",
-    "ItemImage",
-    "ItemMeta"
+  "FormRadio": [
+    "Checkbox"
   ],
-  "ItemContent": [
-    "ItemHeader",
-    "ItemDescription",
-    "ItemExtra",
-    "ItemMeta"
+  "FormSelect": [
+    "Dropdown",
+    "Icon",
+    "Label",
+    "Image",
+    "Flag",
+    "Checkbox"
   ],
-  "ItemDescription": [],
-  "ItemExtra": [],
-  "ItemGroup": [
-    "Item"
+  "FormTextArea": [
+    "Checkbox"
   ],
-  "ItemHeader": [],
-  "ItemImage": [
-    "Image"
+  "Grid": [
+    "Grid"
   ],
-  "ItemMeta": [],
-  "Label": [
+  "Header": [
+    "Header",
     "Icon",
     "Image",
-    "LabelDetail",
-    "LabelGroup"
+    "Dimmer",
+    "Label"
   ],
-  "LabelDetail": [],
-  "LabelGroup": [],
+  "Icon": [
+    "Icon"
+  ],
+  "Image": [
+    "Image",
+    "Dimmer",
+    "Label",
+    "Icon"
+  ],
+  "Input": [
+    "Input",
+    "Button",
+    "Icon",
+    "Label",
+    "Image"
+  ],
+  "Item": [
+    "Item",
+    "Image"
+  ],
+  "ItemGroup": [
+    "Item",
+    "Image"
+  ],
+  "ItemImage": [
+    "Image",
+    "Dimmer",
+    "Label",
+    "Icon"
+  ],
+  "Label": [
+    "Label",
+    "Icon",
+    "Image",
+    "Dimmer"
+  ],
   "List": [
-    "ListContent",
-    "ListDescription",
-    "ListHeader",
-    "ListIcon",
-    "ListItem",
-    "ListList"
+    "List",
+    "Icon",
+    "Image"
   ],
-  "ListContent": [
-    "ListDescription",
-    "ListHeader"
-  ],
-  "ListDescription": [],
-  "ListHeader": [],
   "ListIcon": [
     "Icon"
   ],
   "ListItem": [
     "Image",
-    "ListContent",
-    "ListDescription",
-    "ListHeader",
-    "ListIcon"
+    "Dimmer",
+    "Label",
+    "Icon"
   ],
-  "ListList": [],
-  "Loader": [],
+  "Loader": [
+    "Loader"
+  ],
   "Menu": [
-    "MenuHeader",
-    "MenuItem",
-    "MenuMenu"
+    "Menu",
+    "Icon"
   ],
-  "MenuHeader": [],
   "MenuItem": [
     "Icon"
   ],
-  "MenuMenu": [],
   "Message": [
-    "Icon",
-    "MessageContent",
-    "MessageHeader",
-    "MessageList",
-    "MessageItem"
-  ],
-  "MessageContent": [],
-  "MessageHeader": [],
-  "MessageItem": [],
-  "MessageList": [
-    "MessageItem"
+    "Message",
+    "Icon"
   ],
   "Modal": [
+    "Modal",
     "Icon",
-    "MountNode",
-    "Portal",
-    "ModalHeader",
-    "ModalContent",
-    "ModalActions",
-    "ModalDescription",
-    "Ref"
-  ],
-  "ModalActions": [
     "Button"
   ],
-  "ModalContent": [],
-  "ModalDescription": [],
-  "ModalHeader": [],
-  "MountNode": [
-    "getNodeFromProps",
-    "handleClassNamesChange",
-    "NodeRegistry"
+  "ModalActions": [
+    "Button",
+    "Icon",
+    "Label",
+    "Image"
   ],
-  "NodeRegistry": null,
   "Pagination": [
     "Menu",
-    "PaginationItem"
+    "Icon"
   ],
   "PaginationItem": [
-    "MenuItem"
+    "Icon"
   ],
   "Placeholder": [
-    "PlaceholderHeader",
-    "PlaceholderImage",
-    "PlaceholderLine",
-    "PlaceholderParagraph"
+    "Placeholder"
   ],
-  "PlaceholderHeader": [],
-  "PlaceholderImage": [],
-  "PlaceholderLine": [],
-  "PlaceholderParagraph": [],
   "Popup": [
-    "Portal",
-    "PopupContent",
-    "PopupHeader"
+    "Popup"
   ],
-  "PopupContent": [],
-  "PopupHeader": [],
-  "Portal": [
-    "Ref",
-    "PortalInner"
+  "Progress": [
+    "Progress"
   ],
-  "PortalInner": [
-    "Ref"
-  ],
-  "Progress": [],
   "Radio": [
     "Checkbox"
   ],
-  "Rail": [],
+  "Rail": [
+    "Rail"
+  ],
   "Rating": [
-    "RatingIcon"
-  ],
-  "RatingIcon": [],
-  "Ref": [
-    "RefFindNode",
-    "RefForward"
-  ],
-  "RefFindNode": [
-    "handleRef"
-  ],
-  "RefForward": [
-    "handleRef"
-  ],
-  "Responsive": [
-    "isVisible"
+    "Rating"
   ],
   "Reveal": [
-    "RevealContent"
+    "Reveal"
   ],
-  "RevealContent": [],
   "Search": [
+    "Search",
     "Input",
-    "SearchCategory",
-    "SearchResult",
-    "SearchResults"
+    "Button",
+    "Icon",
+    "Label",
+    "Image"
   ],
-  "SearchCategory": [],
-  "SearchResult": [],
-  "SearchResults": [],
   "Segment": [
-    "SegmentGroup",
-    "SegmentInline"
+    "Segment"
   ],
-  "SegmentGroup": [],
-  "SegmentInline": [],
   "Select": [
-    "Dropdown"
+    "Dropdown",
+    "Icon",
+    "Label",
+    "Image",
+    "Flag"
   ],
   "Sidebar": [
-    "Ref",
-    "SidebarPushable",
-    "SidebarPusher"
+    "Sidebar"
   ],
-  "SidebarPushable": [],
-  "SidebarPusher": [],
   "Statistic": [
-    "StatisticGroup",
-    "StatisticLabel",
-    "StatisticValue"
+    "Statistic"
   ],
   "StatisticGroup": [
     "Statistic"
   ],
-  "StatisticLabel": [],
-  "StatisticValue": [],
   "Step": [
-    "Icon",
-    "StepContent",
-    "StepDescription",
-    "StepGroup",
-    "StepTitle"
+    "Step",
+    "Icon"
   ],
-  "StepContent": [
-    "StepDescription",
-    "StepTitle"
-  ],
-  "StepDescription": [],
   "StepGroup": [
-    "Step"
+    "Step",
+    "Icon"
   ],
-  "StepTitle": [],
-  "Sticky": [],
+  "Sticky": [
+    "Sticky"
+  ],
   "Tab": [
+    "Tab",
     "Grid",
-    "GridColumn",
     "Menu",
-    "TabPane"
+    "Icon",
+    "Segment"
   ],
   "TabPane": [
     "Segment"
   ],
   "Table": [
-    "TableBody",
-    "TableCell",
-    "TableFooter",
-    "TableHeader",
-    "TableHeaderCell",
-    "TableRow"
+    "Table",
+    "Icon"
   ],
-  "TableBody": [],
   "TableCell": [
     "Icon"
   ],
-  "TableFooter": [
-    "TableHeader"
-  ],
-  "TableHeader": [],
   "TableHeaderCell": [
-    "TableCell"
+    "Icon"
   ],
   "TableRow": [
-    "TableCell"
+    "Icon"
   ],
-  "TextArea": [],
   "Transition": [
-    "TransitionGroup"
+    "Transition"
   ],
   "TransitionGroup": [
     "Transition"
   ],
   "TransitionablePortal": [
-    "Portal",
     "Transition"
-  ],
-  "Visibility": []
+  ]
 }

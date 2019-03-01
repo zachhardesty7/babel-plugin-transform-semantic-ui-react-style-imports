@@ -1,6 +1,6 @@
 {
     "name": "babel-plugin-transform-semantic-ui-react-style-imports",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Babel plugin that can add ALL semantic-ui-css/-less imports.",
     "keywords": [
         "babel",

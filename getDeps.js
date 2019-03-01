@@ -62,8 +62,24 @@ function getDeps() {
   return f
 }
 
+function flattenDeps(deps) {
+  const flat = {}
+
+  Object.keys(deps).forEach((dep) => {
+    const newDepList = deps[dep]
+
+    deps[dep] && deps[dep].forEach((depItem) => {
+      if (deps[depItem]) newDepList.push(...deps[depItem])
+    })
+
+    flat[dep] = [...new Set(newDepList)]
+  })
+
+  return flat
+}
+
 function getCleanedDeps() {
-  return filterEmpty(filterInvalidPaths(sortKeys(getDeps())))
+  return filterEmpty(filterInvalidPaths(flattenDeps(sortKeys(getDeps()))))
 }
 
 function writeDependencies(obj) {
