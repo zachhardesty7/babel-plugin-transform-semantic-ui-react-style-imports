@@ -1,4 +1,3 @@
-// TODO: test using a regex to match after "cx()" call
 const path = require('path')
 const fs = require('fs')
 const dirTree = require('directory-tree')
@@ -11,11 +10,14 @@ const {
 } = require('./utils')
 const { getCleanedDeps } = require('./getDeps')
 
-// run as node.js script
-// writeDependencies(utils.filterEmpty(utils.filterInvalid(utils.sortKeys(getFiles()))))
+// TODO: split into separate functions
+// TODO: document regex
+// TODO: handle null checking earlier
+// TODO: better name variables
 
 /**
- * Gathers import paths of Semantic UI React components from semantic-ui-react package folder.
+ * Gathers import paths of Semantic Styled UI React components from
+ * semantic-ui-react package folder.
  * @returns {*} An object where the keys are Semantic UI React component
  * names and the values are the corresponding
  * import paths (relative to semantic-ui-react/dist/[import type]/ or
@@ -28,6 +30,7 @@ function getSSUIDeps() {
   const baseMapping = getCleanedDeps()
   const SSUIMapping = {}
 
+  // load all SSUI files
   dirTree(srcDirPath, { extensions: /\.js$/ }, (item) => {
     const SSUIDeps = []
 
@@ -38,9 +41,10 @@ function getSSUIDeps() {
       'utf8'
     )
 
-    // semantic-styled-ui imports
+    // match semantic-styled-ui imports
     const SSUIMatches = (data.match(/(?<=(?:{|,| ) )([A-Z][a-z]+)+(?=(?:(?:.|\n)(?!import))*?semantic-ui-react)/gm))
 
+    // push all deps from base mapping for each SSUI import
     SSUIMatches && SSUIMatches.forEach((match) => {
       const deps = baseMapping[match]
       deps && deps.forEach((dep) => {
@@ -48,8 +52,8 @@ function getSSUIDeps() {
       })
     })
 
-    const cleanedSSUIDeps = [...new Set(SSUIDeps)]
-    SSUIMapping[name] = cleanedSSUIDeps
+    // remove dupes
+    SSUIMapping[name] = [...new Set(SSUIDeps)]
   })
 
   return SSUIMapping

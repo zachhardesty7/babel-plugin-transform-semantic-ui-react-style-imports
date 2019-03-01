@@ -25,31 +25,6 @@ Add the plugin to your Babel configuration (e.g. in .babelrc):
         "plugins": ["transform-semantic-ui-react-style-imports"]
     }
 
-### Plugin options
-
-The plugin supports the following options (these are the default
-values):
-
-    {
-        "plugins": [
-            [
-                "transform-semantic-ui-react-imports", {
-                    "importType": "es"
-                }
-            ]
-        ]
-    }
-
-#### importType (default: `'es'`)
-
-This must be either the name of a folder below `semantic-ui-react/dist`
-or `src`. `'es'`, `'commonjs'` or `'umd'`:
-
-- `importType='es'` example output:  
-  `import Button from 'semantic-ui-react/dist/es/elements/Button/Button.js';`
-- `importType='src'` example output:  
-  `import Button from 'semantic-ui-react/src/elements/Button/Button.js';`
-
 ## Running the tests (soon)
 
     git clone https://github.com/zachhardesty7/babel-plugin-transform-semantic-ui-react-style-imports.git
@@ -59,4 +34,4 @@ or `src`. `'es'`, `'commonjs'` or `'umd'`:
 
 ## Acknowledgements
 
-heavy inspiration take from [skleeschulte](https://github.com/skleeschulte/babel-plugin-transform-semantic-ui-react-imports)
+heavy inspiration taken from [skleeschulte](https://github.com/skleeschulte/babel-plugin-transform-semantic-ui-react-imports)

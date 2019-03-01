@@ -23,8 +23,6 @@ const input = `
     const { title, pieces } = data.allContentfulPortfolio.edges[0].node
   }
 `
-const { code, map, ast } = babel.transformSync(input, { plugins: [plugin] })
+const { code } = babel.transformSync(input, { plugins: [plugin] })
 
 console.log(code)
-// console.log(map)
-// console.log(ast)

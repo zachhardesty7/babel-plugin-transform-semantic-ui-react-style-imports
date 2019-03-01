@@ -7,11 +7,9 @@ const {
   sortKeys,
   filterEmpty,
   filterInvalidPaths,
+  removeCircularRefStrings,
   writeObjToFile
 } = require('./utils')
-
-// run as node.js script
-// writeDependencies(utils.filterEmpty(utils.filterInvalid(utils.sortKeys(getFiles()))))
 
 /**
  * Gathers import paths of Semantic UI React components from semantic-ui-react package folder.
@@ -49,37 +47,30 @@ function getDeps() {
   })
 
   const f = {}
-  Object.keys(files).forEach((file) => {
-    const data = fs.readFileSync(`node_modules/semantic-ui-react/dist/es${files[file]}`, 'utf8')
+  // load files & accumulate linked deps
+  Object.entries(files).forEach(([name, dep]) => {
+    const data = fs.readFileSync(`node_modules/semantic-ui-react/dist/es${dep}`, 'utf8')
     const reg = /(?<=import )(\w*)(?=.*'\.)/mg
     const match = data.match(reg)
     const matchFilter = match && match.filter(m => m && m)
-    if (matchFilter) matchFilter.unshift(file)
+    if (matchFilter) matchFilter.unshift(name) // add original file name
 
-    f[file] = matchFilter
+    f[name] = matchFilter
   })
 
   return f
 }
 
-function flattenDeps(deps) {
-  const flat = {}
-
-  Object.keys(deps).forEach((dep) => {
-    const newDepList = deps[dep]
-
-    deps[dep] && deps[dep].forEach((depItem) => {
-      if (deps[depItem]) newDepList.push(...deps[depItem])
-    })
-
-    flat[dep] = [...new Set(newDepList)]
-  })
-
-  return flat
-}
-
 function getCleanedDeps() {
-  return filterEmpty(filterInvalidPaths(flattenDeps(sortKeys(getDeps()))))
+  return filterEmpty(
+    filterInvalidPaths(
+      removeCircularRefStrings(
+        sortKeys(
+          getDeps()
+        )
+      )
+    )
+  )
 }
 
 function writeDependencies(obj) {

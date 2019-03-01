@@ -8,6 +8,7 @@ function transform({ types: t }) {
   return {
     visitor: {
       ImportDeclaration(path, state) {
+        // target regular SUI imports
         const packageRegex = /^((.*!)?semantic-ui-react)([/\\].*)?$/
         const match1 = packageRegex.exec(path.node.source.value)
         const addImports = []
@@ -24,6 +25,7 @@ function transform({ types: t }) {
           })
         }
 
+        // target SSUI imports
         const packageRegex2 = /^((.*!)?semantic-styled-ui)([/\\].*)?$/
         const match2 = packageRegex2.exec(path.node.source.value)
 
@@ -39,6 +41,7 @@ function transform({ types: t }) {
           })
         }
 
+        // target base CSS import
         const packageRegex3 = /^semantic-ui-css\/semantic.min.css$/
         const match3 = packageRegex3.exec(path.node.source.value)
         if (match3) {
