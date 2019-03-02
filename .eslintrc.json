@@ -2,14 +2,15 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
-    "plugin:jsx-a11y/recommended",
+    "plugin:promise/recommended",
+    "plugin:import/warnings",
+    "plugin:node/recommended",
     "standard"
   ],
-  "globals": {
-    "fetch": true
-  },
+  "plugins": [
+    "jsx-a11y"
+  ],
   "rules": {
-    "react/jsx-filename-extension": 0,
     "no-console": 0,
     "space-before-function-paren": [
       "error",

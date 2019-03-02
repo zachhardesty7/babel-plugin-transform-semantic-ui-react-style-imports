@@ -12,12 +12,15 @@
     ],
     "homepage": "https://github.com/zachhardesty7/babel-plugin-transform-semantic-ui-react-style-imports",
     "bugs": "https://github.com/zachhardesty7/babel-plugin-transform-semantic-ui-react-style-imports/issues",
-    "main": "dist/index.js",
+    "main": "index.js",
+    "engines": {
+        "node": ">=8.10.0"
+    },
     "license": "MIT",
     "author": "Zach Hardesty <hello@zachhardesty.com> (https://zachhardesty.com)",
     "repository": "github:zachhardesty7/babel-plugin-transform-semantic-ui-react-style-imports",
     "scripts": {
-        "test": "mocha --timeout 30000"
+        "test": "node ./test.js"
     },
     "devDependencies": {
         "@babel/cli": "^7.2.3",
@@ -28,12 +31,10 @@
         "eslint-config-airbnb": "^17.1.0",
         "eslint-config-standard": "^12.0.0",
         "eslint-plugin-import": "^2.16.0",
-        "eslint-plugin-jsx-a11y": "^6.2.1",
         "eslint-plugin-node": "^8.0.1",
         "eslint-plugin-promise": "^4.0.1",
-        "eslint-plugin-react": "^7.12.4",
-        "eslint-plugin-react-hooks": "^1.2.0",
         "eslint-plugin-standard": "^4.0.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
         "mocha": "^6.0.2",
         "react": "^16.8.3",
         "semantic-styled-ui": "^0.1.7",
