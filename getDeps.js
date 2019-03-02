@@ -49,7 +49,7 @@ function getDeps() {
   const f = {}
   // load files & accumulate linked deps
   Object.entries(files).forEach(([name, dep]) => {
-    const data = fs.readFileSync(`node_modules/semantic-ui-react/dist/es${dep}`, 'utf8')
+    const data = fs.readFileSync(path.resolve(semanticUiReactPath, 'dist/es/', dep.slice(1)), 'utf8')
     const reg = /(?<=import )(\w*)(?=.*'\.)/mg
     const match = data.match(reg)
     const matchFilter = match && match.filter(m => m && m)

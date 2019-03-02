@@ -10,8 +10,6 @@ const {
 } = require('./utils')
 const { getCleanedDeps } = require('./getDeps')
 
-// TODO: split into separate functions
-// TODO: document regex
 // TODO: handle null checking earlier
 // TODO: better name variables
 
@@ -36,10 +34,7 @@ function getSSUIDeps() {
 
     const name = item.name.slice(0, item.name.indexOf('.js'))
 
-    const data = fs.readFileSync(
-      `${srcDirPath}${item.path.substring(srcDirPath.length).replace(/\\/g, '/')}`,
-      'utf8'
-    )
+    const data = fs.readFileSync(item.path, 'utf8')
 
     // match semantic-styled-ui imports
     const SSUIMatches = (data.match(/(?<=(?:{|,| ) )([A-Z][a-z]+)+(?=(?:(?:.|\n)(?!import))*?semantic-ui-react)/gm))

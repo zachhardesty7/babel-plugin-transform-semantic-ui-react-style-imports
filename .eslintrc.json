@@ -9,6 +9,7 @@
     "fetch": true
   },
   "rules": {
+    "react/jsx-filename-extension": 0,
     "no-console": 0,
     "space-before-function-paren": [
       "error",
