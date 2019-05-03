@@ -2,11 +2,11 @@ const path = require('path')
 const fs = require('fs')
 const dirTree = require('directory-tree')
 const {
-  getPackagePath,
   sortKeys,
-  filterEmpty,
-  filterInvalidPaths,
-  writeObjToFile
+  getPackagePath,
+  flattenCircularRefs,
+  writeObjToFile,
+  ObjectFromEntries
 } = require('./utils')
 const { getCleanedDeps } = require('./getDeps')
 
@@ -26,36 +26,69 @@ function getSSUIDeps() {
   const srcDirPath = path.resolve(SSUIPath, 'src')
 
   const baseMapping = getCleanedDeps()
-  const SSUIMapping = {}
+  const localSUIMapping = {}
+  const localSSUIMapping = {}
+  const completeMapping = {}
 
-  // load all SSUI files
-  dirTree(srcDirPath, { extensions: /\.js$/ }, (item) => {
+  // load all SSUI files to get local mappings
+  dirTree(srcDirPath, { extensions: /\.js$/ }, (file) => {
+    const SUIDeps = []
     const SSUIDeps = []
 
-    const name = item.name.slice(0, item.name.indexOf('.js'))
+    const name = file.name.slice(0, file.name.indexOf('.js'))
 
-    const data = fs.readFileSync(item.path, 'utf8')
+    // only parse files that start with an uppercase letter
+    if (/^[A-Z]/.test(name)) {
+      const data = fs.readFileSync(file.path, 'utf8')
+      SSUIDeps.push(name)
 
-    // match semantic-styled-ui imports
-    const SSUIMatches = (data.match(/(?<=(?:{|,| ) )([A-Z][a-z]+)+(?=(?:(?:.|\n)(?!import))*?semantic-ui-react)/gm))
+      // match semantic-ui-react imports
+      const SUIMatches = data.match(/(?<=(?:{|,| |\t))[A-Z][A-Za-z]+(?=(?:(?:.|\n)(?!import))*?semantic-ui-react)/gm)
 
-    // push all deps from base mapping for each SSUI import
-    SSUIMatches && SSUIMatches.forEach((match) => {
-      const deps = baseMapping[match]
-      deps && deps.forEach((dep) => {
-        SSUIDeps.push(dep)
+      // match semantic-styled-ui imports
+      const SSUIMatches = data.match(/(?<=import )([A-Z][A-Za-z]+)(?=(?: from )(?:'|"|`)(?:\.|\..)(?:\/\w*)+(?:\1)(?:'|"|`))/gm)
+
+      // push all matched SUI imports
+      SUIMatches && SUIMatches.forEach((match) => {
+        SUIDeps.push(match)
       })
-    })
 
-    // remove dupes
-    SSUIMapping[name] = [...new Set(SSUIDeps)]
+      // push all matched SSUI imports
+      SSUIMatches && SSUIMatches.forEach((match) => {
+        SSUIDeps.push(match)
+      })
+
+      // remove dupes
+      localSUIMapping[name] = [...new Set(SUIDeps)]
+      localSSUIMapping[name] = [...new Set(SSUIDeps)]
+    }
   })
 
-  return SSUIMapping
+  // translate matches to SUI deps
+  Object.entries(flattenCircularRefs(localSSUIMapping)).forEach(([key, deps]) => {
+    deps.forEach((dep) => {
+      localSUIMapping[dep].forEach((SUIDep) => {
+        if (completeMapping[key]) { // already defined
+          if (baseMapping[SUIDep]) { // valid SUI element, merge
+            completeMapping[key] = [...new Set([...completeMapping[key], ...baseMapping[SUIDep]])]
+          }
+        } else {
+          completeMapping[key] = baseMapping[SUIDep]
+        }
+      })
+    })
+  })
+
+  // remove entries without reference
+  return ObjectFromEntries(Object.entries(completeMapping).filter(([key, val]) => val))
 }
 
 function getCleanedSSUIDeps() {
-  return filterEmpty(filterInvalidPaths(sortKeys(getSSUIDeps())))
+  return (
+    sortKeys(
+      getSSUIDeps()
+    )
+  )
 }
 
 function writeSSUIDependencies(obj) {

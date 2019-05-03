@@ -5,9 +5,9 @@ const dirTree = require('directory-tree')
 const {
   getPackagePath,
   sortKeys,
-  filterEmpty,
   filterInvalidPaths,
-  removeCircularRefStrings,
+  filterInvalidKeyPaths,
+  flattenCircularRefs,
   writeObjToFile
 } = require('./utils')
 
@@ -38,11 +38,10 @@ function getDeps() {
     dirTree(searchRoot, { extensions: /\.js$/ }, (item) => {
       const basename = path.basename(item.path, '.js')
 
-      // skip files that do not start with an uppercase letter
-      if (/[^A-Z]/.test(basename[0])) {
-        return
+      // only parse files that start with an uppercase letter
+      if (/^[A-Z]/.test(basename[0])) {
+        files[basename] = item.path.substring(srcDirPath.length).replace(/\\/g, '/')
       }
-      files[basename] = item.path.substring(srcDirPath.length).replace(/\\/g, '/')
     })
   })
 
@@ -52,21 +51,24 @@ function getDeps() {
     const data = fs.readFileSync(path.resolve(semanticUiReactPath, 'dist/es/', dep.slice(1)), 'utf8')
     const reg = /(?<=import )(\w*)(?=.*'\.)/mg
     const match = data.match(reg)
-    const matchFilter = match && match.filter(m => m && m)
-    if (matchFilter) matchFilter.unshift(name) // add original file name
-
-    f[name] = matchFilter
+    const matchFilter = match && match.filter(x => x)
+    if (matchFilter) {
+      matchFilter.unshift(name) // add original file name
+      f[name] = matchFilter
+    }
   })
 
   return f
 }
 
 function getCleanedDeps() {
-  return filterEmpty(
-    filterInvalidPaths(
-      removeCircularRefStrings(
-        sortKeys(
-          getDeps()
+  return (
+    sortKeys(
+      flattenCircularRefs(
+        filterInvalidPaths(
+          filterInvalidKeyPaths(
+            getDeps()
+          )
         )
       )
     )

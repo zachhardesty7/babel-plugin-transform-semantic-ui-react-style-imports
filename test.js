@@ -2,13 +2,6 @@ const babel = require('@babel/core')
 const plugin = require('.')
 
 const input = `
-  import React from 'react'
-  import { Helmet } from 'react-helmet'
-  import PropTypes from 'prop-types'
-  import { graphql } from 'gatsby'
-  import GImage from 'gatsby-image'
-  import 'semantic-ui-css/semantic.min.css'
-
   import {
     Segment,
     Container,
